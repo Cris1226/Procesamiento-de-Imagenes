@@ -258,6 +258,7 @@ IPython.display.Audio('Im_Superman.wav')
 
 import soundfile
 import matplotlib.pyplot as plt
+import numpy as np
 audio_signal, sampling_rate = soundfile.read('Im_Superman.wav')   #Los datos de audio se almacenan en la variable audio_signal, y la tasa de muestreo se almacena en la variable sampling_rate.
 print('Tasa de muestreo: {} muestras/segundo'.format(sampling_rate))    #frecuencia de muestreo
 print('Tamaño de la señal: {} muestras'.format(audio_signal.shape[0]))   #número de muestras en el archivo
@@ -320,6 +321,12 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
+from IPython.display import Audio
+import soundfile as sf
+sf.write('sen_filtrada.wav', sen_filtrada, sampling_rate)
+print('Audio con señal filtrada usando media móvil')
+Audio('sen_filtrada.wav')
+
 """* **Aplicación de FILTRO GAUSSIANO:**"""
 
 FWHM = 20   #Valor teórico de FWHM
@@ -373,6 +380,10 @@ plt.grid()
 plt.legend()
 plt.tight_layout()
 plt.show()
+
+sf.write('sen_filtrada_gauss.wav', sen_filtrada_gauss, sampling_rate)
+print('Audio con señal filtrada usando gaussiana')
+Audio('sen_filtrada_gauss.wav')
 
 """*   # **TEST DE COMPROBACION**
 
